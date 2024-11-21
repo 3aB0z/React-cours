@@ -13,6 +13,7 @@ const initialState = {
     { id: "1", libelle: "apple", quantite: 6 },
     { id: "2", libelle: "ornage", quantite: 2 },
   ],
+  produits: [],
 };
 
 export function productReducer(state = initialState, action) {
@@ -39,6 +40,11 @@ export function productReducer(state = initialState, action) {
             return item.id !== action.payload;
           }),
         ],
+      };
+    case "REMPLIR_PRODUITS":
+      return {
+        ...state,
+        produits: action.payload,
       };
     default:
       return state;

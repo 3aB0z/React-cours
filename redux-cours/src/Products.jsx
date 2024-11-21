@@ -14,6 +14,8 @@ export default function Products() {
   });
   const products = useSelector((state) => state.productReducer.products);
   //   const users = useSelector((state) => state.users);
+  const produits = useSelector((state) => state.productReducer.produits);
+
   const dispatch = useDispatch();
 
   const addProduct = () => {
@@ -51,7 +53,9 @@ export default function Products() {
     <>
       <div className="flex flex-col items-center">
         <div>
-          <h1 className="text-sky-600 mt-8 text-center text-4xl font-bold">Products</h1>
+          <h1 className="text-sky-600 mt-8 text-center text-4xl font-bold">
+            Products
+          </h1>
           <table className="mt-8 border-collapse bg-slate-700 mx-auto">
             <thead>
               <tr>
@@ -146,6 +150,20 @@ export default function Products() {
             onChange={(e) => changeInputValue(e)}
             name="quantite"
           />
+          {/* This select is temporary, it's just for test */}
+          <select className="h-8 mt-8">
+            <option className="text-slate-500" value="">
+              Selectionner un produit
+            </option>
+            {produits.map((item, index) => {
+              return (
+                <option key={index} value={item.id + item.libelle}>
+                  {item.libelle}
+                </option>
+              );
+            })}
+          </select>
+          {/* The end of the temporary code */}
           <div>
             <button
               className="bg-green-500 px-3 py-2 mt rounded-lg text-white"

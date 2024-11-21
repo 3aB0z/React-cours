@@ -1,9 +1,13 @@
 import Products from "./Products";
+import Produits from "./Produits";
 
 function App() {
   return (
     <>
-      <Products />
+      <div className="flex flex-col items-center">
+        <Products />
+        <Produits />
+      </div>
     </>
   );
 }

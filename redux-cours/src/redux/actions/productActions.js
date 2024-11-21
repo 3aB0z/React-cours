@@ -18,3 +18,18 @@ export function deleteProductAction(idProduct) {
     payload: idProduct,
   };
 }
+
+export function fetchProduits() {
+  return (dispatch /*getState*/) => {
+    fetch("http://196.127.103.9:3000/api/produits")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        dispatch({
+          type: "REMPLIR_PRODUITS",
+          payload: data,
+        });
+      });
+  };
+}
