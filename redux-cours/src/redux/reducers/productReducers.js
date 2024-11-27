@@ -1,9 +1,4 @@
 const initialState = {
-  users: [
-    { id: "1", nom: "loukhmi", prenom: "abdelaziz" },
-    { id: "2", nom: "ouchouid", prenom: "zakaria" },
-    { id: "3", nom: "ouafik", prenom: "mohammed" },
-  ],
   products: [
     { id: "1", libelle: "apple", quantite: 3 },
     { id: "2", libelle: "orange", quantite: 5 },
@@ -13,7 +8,7 @@ const initialState = {
     { id: "1", libelle: "apple", quantite: 6 },
     { id: "2", libelle: "ornage", quantite: 2 },
   ],
-  produits: [],
+  categories: [],
 };
 
 export function productReducer(state = initialState, action) {
@@ -41,10 +36,10 @@ export function productReducer(state = initialState, action) {
           }),
         ],
       };
-    case "REMPLIR_PRODUITS":
+    case "REMPLIR_CATEGORIES":
       return {
         ...state,
-        produits: action.payload,
+        categories: action.payload,
       };
     default:
       return state;

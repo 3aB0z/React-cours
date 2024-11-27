@@ -20,14 +20,14 @@ export function deleteProductAction(idProduct) {
 }
 
 export function fetchProduits() {
-  return (dispatch /*getState*/) => {
+  return (dispatch /*, getState*/) => {
     fetch("http://196.127.103.9:3000/api/produits")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         dispatch({
-          type: "REMPLIR_PRODUITS",
+          type: "REMPLIR_CATEGORIES",
           payload: data,
         });
       });
